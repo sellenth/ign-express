@@ -4,10 +4,10 @@ var router = express.Router();
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  request.get('https://ign-apis.herokuapp.com/content?count=1', function(err, resp, body) {
+  request.get('https://ign-apis.herokuapp.com/content?count=5', function(err, resp, body) {
     if (!err && resp.statusCode == 200) {
-      var locals = JSON.parse(body);
-      res.send(locals);
+      var json = JSON.parse(body);
+      res.render('index', { data: json.data });
     }
   });
   //    res.send('respond with a resource');
