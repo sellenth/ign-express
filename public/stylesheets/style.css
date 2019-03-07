@@ -3,7 +3,7 @@ body {
 }
 
 #site-title {
-  font-family: Verdana,Geneva,sans-serif; 
+  font-family: verdana,Geneva, sans-serif; 
   font-weight: bold;
 }
 
@@ -15,16 +15,21 @@ ul {
   list-style-type: none;
 }
 
+#sidebar {
+  flex-grow: 1;
+  min-width: 20%;
+}
 #sidebar ul{
-  flex-grow: 1
   padding: 0px;
   color: grey;
 }
 
 #sidebar ul a {
   color: grey;
-  text-decoration: none;
-  display
+}
+
+#sidebar ul a {
+  width: 100%;
 }
 
 #sidebar ul a:visited {
@@ -33,15 +38,45 @@ ul {
 
 #sidebar ul a:hover {
   color: white;
+  text-decoration: none;
+}
+
+#sidebar ul a:hover li{
+  background: red;
+}
+
+#sidebar li{
+  padding: 10px;
 }
 
 #card {
   flex-grow: 3
 }
 
+.photo {
+  flex-grow: 1;
+  min-width: 30%;
+  max-width: 30%;
+  object-fit: scale-down;
+}
+
+img {
+  width: 100%;
+}
+
+.card-info {
+  margin-left: 10px;
+  flex-grow: 2;
+}
+
+h2 {
+  font-size: 1rem;
+}
+
 #cards li {
   display: flex;
   border-bottom: 1px solid grey;
+  padding-bottom: 5px;
   margin-bottom: 10px;
 }
 
@@ -50,6 +85,12 @@ ul {
 }
 
 a {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
   color: #00B7FF;
+  text-decoration: underline;
 }
 
