@@ -1,13 +1,21 @@
 extends layout
 
 block content
-  h1 Latest News
+  h1(id='site-title') Latest News
   hr
-  ul(id='sidebar')
-    a(href='https://www.google.com'): li Latest
-    a: li Videos
-    a: li Articles  
-  div(id='card-holder')
-    ul(id='cards')
-      each card in data
-        li= card.metadata.title ? card.metadata.title : card.metadata.headline
+  div(id='flexbox')
+    div(id='sidebar')
+      ul
+        a(href='https://www.google.com'): li Latest
+        a: li Videos
+        a: li Articles  
+    div(id='card-holder')
+      ul(id='cards')
+        each card in data
+          li
+            div(class='photo')
+              img(src=card.thumbnails[0].url)
+            div(class='card-info')
+              p= card.metadata.publishDate + ' minutes ago'
+              p Comments
+              h2= card.metadata.title ? card.metadata.title : card.metadata.headline

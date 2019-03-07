@@ -1,8 +1,55 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+#site-title {
+  font-family: Verdana,Geneva,sans-serif; 
+  font-weight: bold;
+}
+
+#flexbox {
+  display: flex;
+}
+
+ul {
+  list-style-type: none;
+}
+
+#sidebar ul{
+  flex-grow: 1
+  padding: 0px;
+  color: grey;
+}
+
+#sidebar ul a {
+  color: grey;
+  text-decoration: none;
+  display
+}
+
+#sidebar ul a:visited {
+  color: grey;
+}
+
+#sidebar ul a:hover {
+  color: white;
+}
+
+#card {
+  flex-grow: 3
+}
+
+#cards li {
+  display: flex;
+  border-bottom: 1px solid grey;
+  margin-bottom: 10px;
+}
+
+#cards li p {
+  display: inline;
 }
 
 a {
   color: #00B7FF;
 }
+
