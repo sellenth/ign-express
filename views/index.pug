@@ -6,9 +6,9 @@ block content
   div(id='flexbox')
     div(id='sidebar')
       ul
-        a(href='https://www.google.com'): li Latest
-        a: li Videos
-        a: li Articles  
+        a(href='latest'): li Latest
+        a(href='videos'): li Videos
+        a(href='articles'): li Articles  
     div(id='card-holder')
       ul(id='cards')
         each card in data
@@ -16,6 +16,7 @@ block content
             div(class='photo')
               img(src=card.thumbnails[0].url)
             div(class='card-info')
-              p= card.metadata.publishDate + ' minutes ago'
-              p Comments
-              h2= card.metadata.title ? card.metadata.title : card.metadata.headline
+              p= card.metadata.post_age
+              p  &middot 
+              p= card.metadata.comments
+              a(href=card.metadata.slug): h2= card.metadata.title ? card.metadata.title : card.metadata.headline
