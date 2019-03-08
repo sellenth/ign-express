@@ -38,16 +38,38 @@ function jsonfix(data) {
     data.data[i].metadata.post_age = post_age;
   }
   
-  console.log(contentIDs);
+  data.ids = contentIDs;
   return data;
+}
+
+function add_comments(comments, content){
+  for (var i = 0; i < comments.count; i++){
+    console.log(comments.content[i].count);
+    content.data[i].metadata.comments = comments.content[i].count;
+  }
+  return content;
+}
+
+function makeURL(ids){
+  var str = "";
+  for (var i = 0; i < ids.length; i++){
+    str+= ids[i] + ","
+  }
+  return 'https://ign-apis.herokuapp.com/comments?ids=' + str;
 }
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   request.get('https://ign-apis.herokuapp.com/content?count=5', function(err, resp, body) {
     if (!err && resp.statusCode == 200) {
-      var json = jsonfix(JSON.parse(body));
-      res.render('index', { data: json.data });
+      var json_content = jsonfix(JSON.parse(body));
+      var comments_url = makeURL(json_content.ids);
+      request.get(comments_url, function(err, resp, body) {
+        if (!err && resp.statusCode == 200) {
+          json_content = add_comments(JSON.parse(body), json_content);
+          res.render('index', { data: json_content.data });
+        }
+      });
     }
   });
   //    res.send('respond with a resource');
