@@ -6,9 +6,18 @@ block content
   div(id='flexbox')
     div(id='sidebar')
       ul
-        a(href='latest'): li Latest
-        a(href='videos'): li Videos
-        a(href='articles'): li Articles  
+        a(href='latest')
+          li
+            i(class="far fa-clock")
+            p Latest
+        a(href='videos')
+          li
+            i(class="fas fa-play")
+            p Videos
+        a(href='latest')
+          li
+            i(class="far fa-clock")
+            p Latest
     div(id='card-holder')
       ul(id='cards')
         each card in data
@@ -18,5 +27,6 @@ block content
             div(class='card-info')
               p= card.metadata.post_age
               p  &middot 
-              p= card.metadata.comments
+              i(class="far fa-comment")
+              p(id='comments')= card.metadata.comments
               a(href=card.metadata.slug): h2= card.metadata.title ? card.metadata.title : card.metadata.headline

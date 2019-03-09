@@ -3,12 +3,17 @@ body {
 }
 
 #site-title {
-  font-family: verdana,Geneva, sans-serif; 
-  font-weight: bold;
+  font-family: 'Chivo', sans-serif; 
+  font-weight: 900;
+  font-size: 3rem;
+  margin: 0px;
 }
 
 #flexbox {
   display: flex;
+}
+#cards {
+  padding-left: 25px;
 }
 
 ul {
@@ -18,7 +23,21 @@ ul {
 #sidebar {
   flex-grow: 1;
   min-width: 20%;
+  font-size: 1.5rem;
 }
+
+#sidebar li > *{
+  display: inline;
+}
+
+#sidebar i {
+  padding-right: 15px;
+}
+
+#card-holder {
+  flex-grow: 4
+}
+
 #sidebar ul{
   padding: 0px;
   color: grey;
@@ -41,7 +60,8 @@ ul {
   text-decoration: none;
 }
 
-#sidebar ul a:hover li{
+#sidebar ul li:hover {
+  color: white;
   background: red;
 }
 
@@ -49,9 +69,6 @@ ul {
   padding: 10px;
 }
 
-#card {
-  flex-grow: 3
-}
 
 .photo {
   flex-grow: 1;
@@ -64,13 +81,23 @@ img {
   width: 100%;
 }
 
+img:hover {
+  opacity: 0.7;
+}
+
 .card-info {
   margin-left: 10px;
   flex-grow: 2;
 }
 
+.card-info p, .card-info i {
+  margin-left: 2px;
+  color: red;
+}
+
 h2 {
   font-size: 1rem;
+  max-width: 50%;
 }
 
 #cards li {
