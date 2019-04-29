@@ -1,0 +1,32 @@
+extends layout
+
+block content
+  h1(id='site-title') Latest News
+  hr
+  div(id='flexbox')
+    div(id='sidebar')
+      ul
+        a(href='latest')
+          li
+            i(class="far fa-clock")
+            p Latest
+        a(href='videos')
+          li
+            i(class="fas fa-play")
+            p Videos
+        a(href='latest')
+          li
+            i(class="far fa-clock")
+            p Latest
+    div(id='card-holder')
+      ul(id='cards')
+        each card in data
+          li
+            div(class='photo')
+              img(src=card.thumbnails[0].url)
+            div(class='card-info')
+              p= card.metadata.post_age
+              p  &middot 
+              i(class="far fa-comment")
+              p(id='comments')= card.metadata.comments
+              a(href=card.metadata.slug): h2= card.metadata.title ? card.metadata.title : card.metadata.headline
