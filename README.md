@@ -1,5 +1,5 @@
 # API call practice
-Goal of the project was the GET resources from a REST endpoint. 
+Goal of the project was to GET resources from a REST endpoint. 
 
 To test locally, pull the repo then npm install/start.
 Navigate to localhost:8080/news
